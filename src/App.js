@@ -27,6 +27,7 @@ const initialState = {
   box: {},
   route: 'signin',
   isSignedIn: false,
+  showParticles: false,
   user: {
     id: '',
     name: '',
@@ -45,6 +46,7 @@ class App extends Component {
       box: {},
       route: 'signin',
       isSignedIn: false,
+      showParticles: false,
       user: {
         id: '',
         name: '',
@@ -59,7 +61,15 @@ class App extends Component {
     this.setState({ input: event.target.value });
   }
 
+  setShowParticles = (showParticles) => {
+    this.setState({ showParticles: showParticles })
+  }
+
   componentDidMount() {
+    setTimeout(() => {
+      this.setShowParticles(true);
+    }, 10);
+
     fetch('http://localhost:3100')
       .then(response => response.json())
       .then(console.log("Server is running"))
@@ -142,7 +152,10 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Particles className='particles' params={particleOptions} />
+        {this.state.showParticles && (
+          <Particles className='particles' params={particleOptions} />
+        )}
+
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         {route === 'home'
           ? <div>
