@@ -5,8 +5,8 @@ Face Detection Application detect if an image contains human faces and coordinat
 
 Back-End is at https://github.com/skategaru/facedetector-api.git
 
-Dev runs on
-Front-End: http://localhost:3000/ 
-Back-End: http://localhost:3100/
+Dev runs on<br />
+Front-End: http://localhost:3000/ <br />
+Back-End: http://localhost:3100/<br />
 
 Note: It doesn't save any information of pictures, only user information is stored.
